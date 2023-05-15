@@ -38,6 +38,11 @@ const Formulario = () => {
                   <img src={entrenador} alt="entrenador" />
                   <span>ENTRENADOR</span>
                 </p>
+                {/*
+                  [key, value] = ["name", { label: "Nombre", type: "text" }]
+                                 ["lastname", { label: "Apellido", type: "text" }]
+                                 
+                */}
                 {Object.entries(POKEMON_FORM_LABELS.trainer).map(([key, value]) => (
                   <Input key={key} name={key} onBlur={handleBlurTrainer} label={value.label} type={value.type} />
                 ))}

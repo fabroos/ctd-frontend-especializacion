@@ -1,7 +1,7 @@
 import { createContext, useContext, useReducer, useState } from "react";
 
 // Aqui debemos crear nuestro contexto y nuestro provider.
-export const formularioContext = createContext<any>(null);
+export const formularioContext = createContext(null);
 
 
 export const POKEMON_FORM_LABELS = {
@@ -43,8 +43,8 @@ const initialValues = {
 //     ...etc
 //   }
 // }
-const INITIAL_STATE = Object.entries(POKEMON_FORM_LABELS).reduce((acc: any, [key, value]) => {
-  acc[key] = Object.entries(value).reduce((acc: any, [key, value]) => {
+const INITIAL_STATE = Object.entries(POKEMON_FORM_LABELS).reduce((acc, [key, value]) => {
+  acc[key] = Object.entries(value).reduce((acc, [key, value]) => {
     acc[key] = value.initialValue
     return acc
   }, {})
@@ -52,7 +52,7 @@ const INITIAL_STATE = Object.entries(POKEMON_FORM_LABELS).reduce((acc: any, [key
 }, {})
 
 
-const formReducer = (state: any, action: any) => {
+const formReducer = (state, action) => {
   switch (action.type) {
     case "SET_TRAINER_PROPERTY":
       return {
@@ -69,10 +69,10 @@ const formReducer = (state: any, action: any) => {
   }
 }
 
-const FormularioProvider = ({ children }: any) => {
+const FormularioProvider = ({ children }) => {
   const [state, dispatch] = useReducer(formReducer, INITIAL_STATE);
 
-  const handleBlurPokemon = (e: any) => { // esto va en un <input onBlur={handleBlurPokemon} />
+  const handleBlurPokemon = (e) => { // esto va en un <input onBlur={handleBlurPokemon} />
     dispatch({
       type: "SET_POKEMON_PROPERTY",
       payload: {
@@ -81,7 +81,7 @@ const FormularioProvider = ({ children }: any) => {
     });
   };
 
-  const handleBlurTrainer = (e: any) => { // esto va en un <input onBlur={handleBlurPokemon} />
+  const handleBlurTrainer = (e) => { // esto va en un <input onBlur={handleBlurPokemon} />
     console.log({ [e.target.name]: e.target.value });
     dispatch({
       type: "SET_TRAINER_PROPERTY",

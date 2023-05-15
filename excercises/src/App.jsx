@@ -2,17 +2,16 @@ import {Routes, Route, BrowserRouter} from 'react-router-dom'
 import Home from './pages/home'
 import Formulario from './pages/clase-1'
 
-export const ROUTES = 
- {
+export const ROUTES = {
   HOME: {
     path: '/',
-    component: () => import('./pages/home') // lazy load
+    // component: () => import('./pages/home') // lazy load
   },
   FORMULARIO: {
     path: '/formularioIngreso',
-    component: () => import('./pages/clase-1') // lazy load
+    // component: () => import('./pages/clase-1') // lazy load
   }
- }
+}
 
 
 function App() {
