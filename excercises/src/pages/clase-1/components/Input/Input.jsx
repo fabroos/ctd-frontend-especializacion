@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useFormularioContext } from "../../context/ContextoFormulario";
-
+import PropTypes from "prop-types";
 const Input = ({ name, label, type = "text", ...props }) => {
   // Aqui deberíamos acceder al estado global para poder obtener los datos
   // del formulario y una manera de actualizar los mismos.
@@ -25,5 +25,11 @@ const Input = ({ name, label, type = "text", ...props }) => {
     </div>
   );
 };
+
+Input.propTypes = {
+  name: PropTypes.string.isRequired,
+  label: PropTypes.string.isRequired,
+  type: PropTypes.string,
+}
 
 export default Input;

@@ -2,6 +2,7 @@ import {Routes, Route, BrowserRouter} from 'react-router-dom'
 import Home from './pages/home'
 import Formulario from './pages/clase-1'
 
+
 export const ROUTES = {
   HOME: {
     path: '/',
